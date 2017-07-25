@@ -38,14 +38,14 @@
         background-color: #c1d7f7;
         z-index:9999;
     }
-    .mdl-card--border {
+    #subfooter.mdl-card--border {
         height: 50px;
         background: url('images/clouds.jpg') no-repeat;
         background-size: cover;
         background-position-x: 50%;
         background-position-y: 50%;
     }
-    .mdl-card__title{
+    #logo.mdl-card__title{
         height: 200px;
         background: url('images/airplane.jpg');
         background-repeat: no-repeat;
@@ -58,18 +58,37 @@
     }
     .travel-cell {
         background-color: #e6e6fa;
-        border: 1px solid silver;
-        height: 200px;
+        height: auto;
+    }
+    .travel-cell:hover {
+        opacity: 0.9;
     }
     .button {
         background: #e6e6fa !important;
     }
-
+    /*характеристика пункта путешествия*/
+    .demo-card-image.mdl-card {
+        width: auto;
+        height: auto;
+        background: white;
+        border: 1px solid #e6e6fa;
+        /*придумать иконку на отсутсвие изображения*/
+    }
+    .demo-card-image > .mdl-card__actions {
+        height: 52px;
+        padding: 16px;
+        background:  rgba(193,215,247, 0.5);
+    }
+    .demo-card-image__filename {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+    }
 </style>
 <!--
 1. цвет ободка текстового поле переделать
-2. на первую клетку добавить иконку "плюс",адаптировать вид под создание нового приложения
-3. остальные иконки заполнить фотографиями, выплывающими подсказками при наведении
+2. придумать иконку на отсуствие изображения
+3. придумать как будет выклядеть клетка добавления элемента
 -->
 <body>
     <div class="wrapper">
@@ -78,22 +97,21 @@
                 <div class="mdl-cell mdl-cell--8-col" style="margin: 0 auto !important;">
                     <br>
                     <div class="mdl-card" style="width: 100%;">
-                        <div class="mdl-card__title mdl-card--expand" style="position: relative !important;">
+                        <div class="mdl-card__title mdl-card--expand" id="logo" style="position: relative !important;">
                             <p class="mdl-card__title-text" >
                                 My travellings
                             </p>
                         </div>
                         <div class="mdl-card__supporting-text" style="margin: 0 auto !important; min-height: 300px;">
                             <div class="mdl-grid">
-                                <div class="mdl-cell  mdl-cell--4-col">
-                                </div>
-                                <div class="mdl-cell  mdl-cell--4-col">
+
+                                <div class="mdl-cell  mdl-cell--8-col">
                                 </div>
                                 <div class="mdl-cell mdl-cell--4-col">
                                     <!--поле поиска путешествия по названию-->
                                     <div class="ui search">
                                         <div class="ui icon input" style="width: 100%;">
-                                            <input class="prompt" type="text" placeholder="trip name" style="border-radius: 4px !important;">
+                                            <input class="prompt" type="text" placeholder="trip name" style="border-radius: 2px !important;">
                                             <i class="search icon"></i>
                                         </div>
                                         <div class="results"></div>
@@ -105,19 +123,67 @@
                                     <p style="margin: auto;">New trip</p>
                                 </div>
                                 <!--список путешествий-->
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
+                                <div class="mdl-cell mdl-cell--4-col">
+                                    <!--итем с фотографией-->
+                                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="background:url('images/card_picture1.PNG') center / cover !important;">
+                                        <div class="mdl-card__title mdl-card--expand"></div>
+                                        <div class="mdl-card__actions">
+                                            <span class="demo-card-image__filename">Малазия</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell travel-cell mdl-cell--4-col">
+                                    <!--итем с фотографией-->
+                                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="background:url('images/card_picture2.PNG') center / cover !important;">
+                                        <div class="mdl-card__title mdl-card--expand"></div>
+                                        <div class="mdl-card__actions">
+                                            <span class="demo-card-image__filename">Комбоджа</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
+                                <div class="mdl-cell travel-cell mdl-cell--4-col">
+                                    <!--итем с фотографией-->
+                                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="background:url('images/card_picture3.PNG') center / cover !important;">
+                                        <div class="mdl-card__title mdl-card--expand"></div>
+                                        <div class="mdl-card__actions">
+                                            <span class="demo-card-image__filename">Бангког</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell travel-cell mdl-cell--4-col">
+                                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="background:url('images/card_picture4.PNG') center / cover !important;">
+                                        <div class="mdl-card__title mdl-card--expand"></div>
+                                        <div class="mdl-card__actions">
+                                            <span class="demo-card-image__filename">Майорка</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell travel-cell mdl-cell--4-col">
+                                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="background:url('images/card_picture5.PNG') center / cover !important;">
+                                        <div class="mdl-card__title mdl-card--expand"></div>
+                                        <div class="mdl-card__actions">
+                                            <span class="demo-card-image__filename">Капдепер</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
+                                <div class="mdl-cell mdl-cell--4-col" >
+                                    <!--итем без фото-->
+                                    <div class="demo-card-image travel-cell mdl-card">
+                                        <div class="mdl-card__title mdl-card--expand" >
+
+                                        </div>
+                                        <div class="mdl-card__actions" >
+                                            <span class="demo-card-image__filename">Тайланд</span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
                                 <div class="mdl-cell travel-cell mdl-cell--4-col"></div>
                             </div>
                         </div>
-                        <div class="mdl-card__actions mdl-card--border mdl-card__supporting-text" style="text-align: center; padding:5px 5px;">
+                        <div class="mdl-card__actions mdl-card--border mdl-card__supporting-text" id="subfooter" style="text-align: center; padding:5px 5px;">
                         </div>
                     </div>
                 </div>
